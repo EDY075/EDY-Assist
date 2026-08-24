@@ -1,0 +1,141 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "sqlite"
+}
+
+model AppSettings {
+  id                 Int      @id @default(1)
+  appMode            String   @default("LOCAL")
+  timezone           String   @default("America/Sao_Paulo")
+  quietEnabled       Boolean  @default(true)
+  quietStart         String   @default("22:00")
+  quietEnd           String   @default("07:00")
+  waterReminderEnabled Boolean @default(true)
+  whatsappRecipient  String?
+  dailySummaryTime   String   @default("20:00")
+  weeklySummaryDay   Int      @default(0)
+  weeklySummaryTime  String   @default("19:00")
+  createdAt          DateTime @default(now())
+  updatedAt          DateTime @updatedAt
+}
+
+model ConversationSession {
+  id                 String    @id @default(cuid())
+  channel            String    @default("LOCAL")
+  externalUserId     String?
+  lastReminderId     String?
+  lastFocusSessionId String?
+  pendingIntentJson  String?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+  messages           Message[]
+  @@unique([channel, externalUserId])
+}
+
+model Message {
+  id           String   @id @default(cuid())
+  sessionId    String
+  direction    String
+  channel      String   @default("LOCAL")
+  text         String
+  status       String   @default("DELIVERED")
+  externalId   String?  @unique
+  metadataJson String?
+  createdAt    DateTime @default(now())
+  session      ConversationSession @relation(fields: [sessionId], references: [id], onDelete: Cascade)
+  @@index([sessionId, createdAt])
+}
+
+model Reminder {
+  id                 String    @id @default(cuid())
+  title              String
+  description        String?
+  category           String    @default("GENERAL")
+  dueAt              DateTime
+  timezone           String    @default("America/Sao_Paulo")
+  recurrence         String    @default("NONE")
+  recurrenceInterval Int       @default(1)
+  recurrenceDaysJson String?
+  recurrenceUntil    DateTime?
+  status             String    @default("PENDING")
+  source             String    @default("LOCAL")
+  notificationSentAt DateTime?
+  completedAt        DateTime?
+  cancelledAt        DateTime?
+  parentReminderId   String?
+  createdAt          DateTime  @default(now())
+  updatedAt          DateTime  @updatedAt
+  hydrationFocus     FocusSession? @relation("HydrationReminder")
+  @@index([dueAt, status])
+  @@index([category, dueAt])
+}
+
+model FocusSession {
+  id                  String    @id @default(cuid())
+  durationMinutes     Int
+  subject             String?
+  track               String?
+  objective           String?
+  status              String    @default("ACTIVE")
+  startedAt           DateTime  @default(now())
+  endsAt              DateTime
+  completedAt         DateTime?
+  cancelledAt         DateTime?
+  hydrationReminderId String?   @unique
+  hydrationReminder   Reminder? @relation("HydrationReminder", fields: [hydrationReminderId], references: [id], onDelete: SetNull)
+  studyLogs           StudyLog[]
+  @@index([status, startedAt])
+}
+
+model StudyLog {
+  id              String    @id @default(cuid())
+  focusSessionId  String?
+  subject         String
+  track           String
+  objective       String?
+  activityType    String    @default("STUDY")
+  notes           String?
+  difficulty      Int?
+  durationMinutes Int       @default(0)
+  questions       Int       @default(0)
+  correctAnswers  Int       @default(0)
+  studiedAt       DateTime  @default(now())
+  createdAt       DateTime  @default(now())
+  focusSession    FocusSession? @relation(fields: [focusSessionId], references: [id], onDelete: SetNull)
+  reviews         Review[]
+  @@index([studiedAt])
+  @@index([track, subject])
+}
+
+model Review {
+  id           String    @id @default(cuid())
+  studyLogId   String
+  subject      String
+  intervalDays Int
+  dueAt        DateTime
+  status       String    @default("PENDING")
+  completedAt  DateTime?
+  createdAt    DateTime  @default(now())
+  studyLog     StudyLog  @relation(fields: [studyLogId], references: [id], onDelete: Cascade)
+  @@unique([studyLogId, intervalDays])
+  @@index([dueAt, status])
+}
+
+model StudyModule {
+  id          String   @id @default(cuid())
+  name        String   @unique
+  description String?
+  color       String   @default("#7c5cff")
+  topicsJson  String   @default("[]")
+  goalMinutes Int      @default(300)
+  isStarter   Boolean  @default(false)
+  isArchived  Boolean  @default(false)
+  archivedAt  DateTime?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+  @@index([name])
+}

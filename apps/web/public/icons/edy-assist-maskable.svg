@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="EDY Assist">
+  <defs>
+    <linearGradient id="mask-bg" x1="30" y1="18" x2="482" y2="494" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8d73ff"/>
+      <stop offset=".58" stop-color="#6548df"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+  </defs>
+  <rect width="512" height="512" fill="#08090d"/>
+  <circle cx="256" cy="256" r="244" fill="url(#mask-bg)"/>
+  <path d="M160 157h196v53H222v47h119v50H222v50h139v54H160V157Z" fill="#fff"/>
+  <circle cx="365" cy="153" r="22" fill="#31e8a4"/>
+</svg>

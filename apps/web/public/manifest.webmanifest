@@ -1,0 +1,46 @@
+{
+  "id": "/",
+  "name": "EDY Assist",
+  "short_name": "EDY Assist",
+  "description": "Agenda, estudos, foco e rotina pessoal com dados locais reais.",
+  "lang": "pt-BR",
+  "dir": "ltr",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "display_override": ["window-controls-overlay", "standalone", "minimal-ui"],
+  "orientation": "portrait-primary",
+  "theme_color": "#08090d",
+  "background_color": "#08090d",
+  "categories": ["productivity", "education", "utilities"],
+  "icons": [
+    {
+      "src": "/icons/edy-assist.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any"
+    },
+    {
+      "src": "/icons/edy-assist-maskable.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    {
+      "name": "Abrir Assistente",
+      "short_name": "Assistente",
+      "description": "Adicionar ou consultar algo por linguagem natural",
+      "url": "/?page=whatsapp",
+      "icons": [{ "src": "/icons/edy-assist.svg", "sizes": "any", "type": "image/svg+xml" }]
+    },
+    {
+      "name": "Iniciar foco",
+      "short_name": "Foco",
+      "description": "Abrir o modo de foco",
+      "url": "/?page=foco",
+      "icons": [{ "src": "/icons/edy-assist.svg", "sizes": "any", "type": "image/svg+xml" }]
+    }
+  ]
+}

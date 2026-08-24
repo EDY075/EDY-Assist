@@ -1,0 +1,65 @@
+# Segredos e configuração exclusivamente local
+.env
+.env.*
+!.env.example
+*.pem
+*.key
+*.p12
+*.pfx
+*.jks
+*.keystore
+
+# Dependências, builds, cobertura e caches
+node_modules/
+dist/
+coverage/
+.cache/
+.parcel-cache/
+.turbo/
+.vite/
+*.tsbuildinfo
+apps/web/vite.config.js
+apps/web/vite.config.d.ts
+generated/prisma/
+
+# Bancos locais, journals e cópias de segurança
+*.db
+*.db-journal
+*.db-shm
+*.db-wal
+*.sqlite
+*.sqlite3
+*.sqlite-journal
+*.bak
+*.backup
+archive/
+.demo/
+
+# Logs, temporários e artefatos operacionais
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.mobile-runtime/
+*qr*.png
+*qr*.svg
+
+# Ferramentas locais portáteis (baixadas sob demanda)
+tools/*.exe
+
+# IDE, sistema operacional e metadados locais
+.idea/
+.vscode/
+*.code-workspace
+.DS_Store
+Thumbs.db
+Desktop.ini
+
+# Android e assinaturas locais
+local.properties
+*.apk
+*.aab

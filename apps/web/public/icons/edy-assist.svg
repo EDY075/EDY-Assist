@@ -1,0 +1,18 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" role="img" aria-label="EDY Assist">
+  <defs>
+    <linearGradient id="bg" x1="72" y1="48" x2="440" y2="464" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#8d73ff"/>
+      <stop offset=".52" stop-color="#6548df"/>
+      <stop offset="1" stop-color="#22d3ee"/>
+    </linearGradient>
+    <radialGradient id="glow" cx="0" cy="0" r="1" gradientTransform="translate(162 130) rotate(48) scale(350)">
+      <stop stop-color="#fff" stop-opacity=".25"/>
+      <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+    </radialGradient>
+  </defs>
+  <rect x="24" y="24" width="464" height="464" rx="124" fill="#08090d"/>
+  <rect x="44" y="44" width="424" height="424" rx="108" fill="url(#bg)"/>
+  <rect x="44" y="44" width="424" height="424" rx="108" fill="url(#glow)"/>
+  <path d="M155 151h206v55H220v49h125v52H220v53h146v56H155V151Z" fill="#fff"/>
+  <circle cx="369" cy="145" r="24" fill="#31e8a4"/>
+</svg>
