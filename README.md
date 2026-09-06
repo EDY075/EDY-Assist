@@ -1,6 +1,10 @@
+![EDY Assist — rotina, estudos, foco e lembretes](docs/assets/edy-assist-banner.png)
+
 # EDY Assist
 
 Assistente pessoal mobile-first em português para rotina, estudos, foco e lembretes, com PWA, monitoramento de aprendizagem e integração WhatsApp.
+
+![Node.js](https://img.shields.io/badge/Node.js-20.19%2B-339933?style=flat-square&logo=node.js&logoColor=white) ![React](https://img.shields.io/badge/React-19-149ECA?style=flat-square&logo=react&logoColor=white) ![TypeScript](https://img.shields.io/badge/TypeScript-5-3178C6?style=flat-square&logo=typescript&logoColor=white) ![SQLite](https://img.shields.io/badge/SQLite-local-0F80CC?style=flat-square&logo=sqlite) ![PWA](https://img.shields.io/badge/PWA-installable-5A0FC8?style=flat-square)
 
 > Beta de portfólio: o modo local funciona sem credenciais. Integrações externas permanecem opcionais e exigem configuração do próprio operador.
 
@@ -8,7 +12,7 @@ Assistente pessoal mobile-first em português para rotina, estudos, foco e lembr
 
 O EDY Assist reúne agenda, sessões de foco, estudos, revisões espaçadas, relatórios e um assistente em linguagem natural. O painel React e os canais local, Meta e Twilio compartilham o mesmo motor de domínio e persistem dados em SQLite.
 
-![Tela Hoje do EDY Assist](docs/assets/edy-assist-today-desktop.png)
+![Demonstração do EDY Assist com dados fictícios](docs/assets/edy-assist-demo.gif)
 
 ## Destaques
 
