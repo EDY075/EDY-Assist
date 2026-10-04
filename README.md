@@ -8,6 +8,10 @@ Assistente pessoal mobile-first em português para rotina, estudos, foco e lembr
 
 > Beta de portfólio: o modo local funciona sem credenciais. Integrações externas permanecem opcionais e exigem configuração do próprio operador.
 
+## Apresentação em vídeo
+
+https://github.com/user-attachments/assets/a7af6347-bd9a-4434-b068-e0f83254fd05
+
 ## Visão geral
 
 O EDY Assist reúne agenda, sessões de foco, estudos, revisões espaçadas, relatórios e um assistente em linguagem natural. O painel React e os canais local, Meta e Twilio compartilham o mesmo motor de domínio e persistem dados em SQLite.
